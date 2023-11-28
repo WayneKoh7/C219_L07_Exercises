@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 1</title>
+</head>
+
+<body>
+    <form id="myForm">
+        <!-- Two text fields - Name and Email -->
+        <input id="name" type="text" placeholder="Name" value=""><br><br>
+        <input id="email" type="email" placeholder="Email" value=""><br><br>
+        <!-- Two radio buttons for Gender - Male and Female -->
+        <label>
+            <input type="radio" name="gender" value="male"> Male
+        </label>
+        <br>
+        <label>
+            <input type="radio" name="gender" value="female"> Female
+        </label><br><br>
+        <!-- Submit button -->
+        <input type="button" value="Submit" onclick="displayFormData()">
+    </form>
+
+    <br>
+
+    <!-- Display form data -->
+    <div id="displayData"></div>
+
+    <script>
+        function displayFormData() {
+            // Get form data
+            var name = document.getElementById("name").value;
+            var email = document.getElementById("email").value;
+            var gender = document.querySelector('input[name="gender"]:checked') ? document.querySelector('input[name="gender"]:checked').value : "";
+
+            // Display data
+            gender = gender.charAt(0).toUpperCase() + gender.slice(1); //Capitalize the Gender's first letter
+            var displayDiv = document.getElementById("displayData");
+            displayDiv.innerHTML = "Name: " + name + "<br>Email: " + email + "<br>Gender: " + gender;
+        }
+    </script>
+</body>
+
+</html>
